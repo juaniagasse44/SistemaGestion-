@@ -22,7 +22,7 @@ import java.util.List;
 @RestController // 1. Indica que esta clase es un controlador REST.
 @RequestMapping("/api/categorias") // 2. Define la URL base para todos los métodos de este controlador.
 public class CategoriaController {
-
+//esto es un comentario de prueba para mostarle a juani
     @Autowired // 3. Inyecta nuestro servicio de categorías.
     private CategoriaService categoriaService;
 
