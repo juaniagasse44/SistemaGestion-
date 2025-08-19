@@ -1,5 +1,7 @@
 package com.servicioGestion.supermercado.apiREST.Models;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +32,7 @@ public class Producto {
     private String descripcion;
 
     @Column(name = "precio")
-    private Float precio;
+    private BigDecimal precio;
 
     @Column(name = "stock")
     private Integer stock;
