@@ -26,6 +26,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+		// --- LÓGICA CLAVE AÑADIDA ---
+    // Si la petición es para una ruta de autenticación, no hacemos nada con el token
+    // y simplemente dejamos que continúe hacia el controlador.
+    if (request.getRequestURI().startsWith("/api/auth")) {
+        filterChain.doFilter(request, response);
+        return; // ¡Muy importante salir del filtro aquí!
+    }
+    // --- FIN DE LA LÓGICA AÑADIDA ---
+		
 		String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 		if (authHeader != null && authHeader.startsWith("Bearer ")) {
 			String token = authHeader.substring(7);
